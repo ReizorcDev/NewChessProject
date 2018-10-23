@@ -1,14 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
+#include "plateau.h"
 using namespace std;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
+	plateau Echiquier;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -19,7 +17,7 @@ int main()
 		}
 
 		window.clear();
-		window.draw(shape);
+		Echiquier.afficher(window);
 		window.display();
 	}
 
