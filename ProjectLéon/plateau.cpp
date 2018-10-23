@@ -3,7 +3,8 @@
 
 plateau::plateau() {
 	grand.setSize(sf::Vector2f(taille*1.2,taille*1.2));//20% de marges
-	grand.setFillColor(sf::Color::Green);
+	sf::Color Gris (125, 125, 125);
+	grand.setFillColor(Gris);
 }
 
 void plateau::afficher(sf::RenderWindow &window)
@@ -17,11 +18,11 @@ void plateau::afficher(sf::RenderWindow &window)
 			sf::RectangleShape petit(sf::Vector2f(cote, cote));
 			petit.setPosition(sf::Vector2f(cote*ligne + taille * 0.1, cote*colonne + taille * 0.1)); //marge de 10% sur chaque bord
 			if (couleurs[ligne][colonne] == 1){
-				petit.setFillColor(sf::Color::Blue);
+				petit.setFillColor(sf::Color::Black);
 				window.draw(petit);
 			}
 			else if (couleurs[ligne][colonne] == 0) {
-				petit.setFillColor(sf::Color::Red);
+				petit.setFillColor(sf::Color::White);
 				window.draw(petit);}
 				}
 	}

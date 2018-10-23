@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(600*1.2, 600*1.2), "SFML works!");
 	plateau Echiquier;
 	while (window.isOpen())
 	{

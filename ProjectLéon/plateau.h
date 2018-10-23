@@ -6,7 +6,7 @@
 class plateau
 {
 private:
-	int taille = 500;
+	int taille = 600;
 	sf::RectangleShape grand;
 	/*int couleurs[2][2] = {
 		{1,0},{0,1}
