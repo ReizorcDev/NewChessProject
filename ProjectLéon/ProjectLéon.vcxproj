@@ -132,14 +132,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="piece.cpp" />
     <ClCompile Include="plateau.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="piece.h" />
     <ClInclude Include="plateau.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ProjectLéon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image1.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
