@@ -18,5 +18,7 @@ void piece::move(char colonne, int ligne, plateau echiquier) {
 	x_dest = taille*0.1+((int)colonne - 97)*taille/8;
 	int inverse = 9 - ligne;
 	y_dest = taille * 0.1 + inverse * taille / 8;
+	this->Xpos = 2;
+	std::cout << this->Xpos<<std::endl;
 	std::cout << x_dest << " " << y_dest << std::endl;
 }
