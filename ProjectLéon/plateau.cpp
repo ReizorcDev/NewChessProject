@@ -6,6 +6,7 @@ plateau::plateau() {
 	sf::Color Gris (125, 125, 125);//couleur du fond
 	Fond.setFillColor(Gris);
 }
+
 int plateau::getTaille() {
 	return taille;
 }
@@ -31,14 +32,17 @@ void plateau::afficher(sf::RenderWindow &window)
 		for (int colonne = 0; colonne < max; colonne++) {
 			sf::RectangleShape petit(sf::Vector2f(cote, cote));
 			petit.setPosition(sf::Vector2f(cote*ligne + taille * marges/100, cote*colonne + taille * marges/100)); //marge de 10% sur chaque bord
-
-			if (couleurs[ligne][colonne] == 1) {
+			switch (couleurs[ligne][colonne]) {
+			case 0 :
+				petit.setFillColor(sf::Color::White);//couleur des cases blanches
+				window.draw(petit);
+				break;
+			case 1:
 				petit.setFillColor(sf::Color::Black);//couleur des cases noires
 				window.draw(petit);
-			}
-			else if (couleurs[ligne][colonne] == 0) {
-					petit.setFillColor(sf::Color::White);//couleur des cases blanches
-					window.draw(petit);
+				break;
+			default:
+				std::cout << "Erreur d'affichage";
 			}
 		}
 	}
@@ -63,5 +67,6 @@ void plateau::afficher(sf::RenderWindow &window)
 	Nom.setPosition(cote+taille *marges/100, 0);
 	window.draw(Nom);
 }
+
 plateau::~plateau()
 {}
