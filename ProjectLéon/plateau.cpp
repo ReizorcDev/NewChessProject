@@ -37,9 +37,7 @@ void plateau::afficher(sf::RenderWindow &window)
 					petit.setFillColor(sf::Color::White);//couleur des cases blanches
 					window.draw(petit);
 			}
-			
 		}
-
 	}
 	char nomColonne[8] = { 'A','B','C','D','E','F','G','H'};
 	for (int colonne = 0; colonne < max; colonne++) {
@@ -56,7 +54,7 @@ void plateau::afficher(sf::RenderWindow &window)
 
 	sf::Text Nom;
 	Nom.setFont(font2);
-	Nom.setColor(sf::Color::Black);
+	Nom.setFillColor(sf::Color::Black);
 	Nom.setCharacterSize(48);
 	Nom.setString("New Chess Project");
 	Nom.setPosition(cote+taille *marges/100, 0);
