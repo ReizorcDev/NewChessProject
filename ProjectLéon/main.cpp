@@ -7,7 +7,7 @@ using namespace std;
 https://www.youtube.com/watch?v=_4EuZI8Q8cs */
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(600*1.2, 600*1.2), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(600*1.2, 600*1.2), "Project Chess");
 	plateau Echiquier;
 	while (window.isOpen())
 	{
