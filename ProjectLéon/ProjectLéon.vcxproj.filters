@@ -41,9 +41,4 @@
       <Filter>Fichiers de ressources</Filter>
     </ResourceCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="image1.bin">
-      <Filter>Fichiers de ressources</Filter>
-    </None>
-  </ItemGroup>
 </Project>
