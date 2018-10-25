@@ -9,6 +9,8 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(600*1.2, 600*1.2), "Project Chess");
 	plateau Echiquier;
+	piece piece;
+	piece.move('a', 2,Echiquier);
 	while (window.isOpen())
 	{
 		sf::Event event;

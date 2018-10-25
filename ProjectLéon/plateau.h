@@ -31,6 +31,7 @@ private:
 public:
 	void afficher(sf::RenderWindow &window);//afiche le plateau
 	plateau();
+	int getTaille();
 	~plateau();
 };
 

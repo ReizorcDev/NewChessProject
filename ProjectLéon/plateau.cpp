@@ -6,6 +6,9 @@ plateau::plateau() {
 	sf::Color Gris (125, 125, 125);//couleur du fond
 	Fond.setFillColor(Gris);
 }
+int plateau::getTaille() {
+	return taille;
+}
 
 void plateau::afficher(sf::RenderWindow &window)
 {
