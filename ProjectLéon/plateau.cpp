@@ -1,14 +1,89 @@
 #include "plateau.h"
-#include <string>
 
 plateau::plateau() {
 	Fond.setSize( sf::Vector2f(taille*(1+0.02*marges), taille*(1+0.02*marges)) );
 	sf::Color Gris (125, 125, 125);//couleur du fond
 	Fond.setFillColor(Gris);
+	/*
+	roiB->setPosition(lincolToXY('d', 1 ));
+	reineB->setPosition(lincolToXY('e', 1 ));
+	fou1B->setPosition(lincolToXY('c', 1));
+	fou2B->setPosition(lincolToXY('f', 1));
+	tour1B->setPosition(lincolToXY('a', 1));
+	tour2B->setPosition(lincolToXY('h', 1));
+	cav1B->setPosition(lincolToXY('b', 1));
+	cav2B->setPosition(lincolToXY('g', 1));
+	pion1B->setPosition(lincolToXY('a', 2));
+	pion2B->setPosition(lincolToXY('b', 2));
+	pion3B->setPosition(lincolToXY('c', 2));
+	pion4B->setPosition(lincolToXY('d', 2));
+	pion5B->setPosition(lincolToXY('e', 2));
+	pion6B->setPosition(lincolToXY('f', 2));
+	pion7B->setPosition(lincolToXY('g', 2));
+	pion8B->setPosition(lincolToXY('h', 2));
+	roiN->setPosition(lincolToXY('d', 8));
+	reineN->setPosition(lincolToXY('e', 8));
+	fou1N->setPosition(lincolToXY('c', 8));
+	fou2N->setPosition(lincolToXY('f', 8));
+	tour1N->setPosition(lincolToXY('a', 8));
+	tour2N->setPosition(lincolToXY('h', 8));
+	cav1N->setPosition(lincolToXY('b', 8));
+	cav2N->setPosition(lincolToXY('g', 8));
+	pion1N->setPosition(lincolToXY('a', 7));
+	pion2N->setPosition(lincolToXY('b', 7));
+	pion3N->setPosition(lincolToXY('c', 7));
+	pion4N->setPosition(lincolToXY('d', 7));
+	pion5N->setPosition(lincolToXY('e', 7));
+	pion6N->setPosition(lincolToXY('f', 7));
+	pion7N->setPosition(lincolToXY('g', 7, this));
+	pion8N->setPosition(lincolToXY('h', 7, this));
+	*/
+}
+/*
+void plateau::initPieces(piece roiB) {
+	reineB.init(Reine, 1, reineBText, lincolToXY('e', 1));
+	fou1B.init(Fou, 1, fouBText, lincolToXY('c', 1));
+	fou2B.init(Fou, 1, fouBText, lincolToXY('f', 1));
+	cav1B.init(Cavalier, 1, cavBText, lincolToXY('b', 1));
+	cav2B.init(Cavalier, 1, cavBText, lincolToXY('g', 1));
+	tour1B.init(Tour, 1, tourBText, lincolToXY('a', 1));
+	tour2B.init(Tour, 1, tourBText, lincolToXY('h', 1));
+	pion1B.init(Pion, 1, pionBText, lincolToXY('a', 2));
+	pion2B.init(Pion, 1, pionBText, lincolToXY('b', 2));
+	pion3B.init(Pion, 1, pionBText, lincolToXY('c', 2));
+	pion4B.init(Pion, 1, pionBText, lincolToXY('d', 2));
+	pion5B.init(Pion, 1, pionBText, lincolToXY('e', 2));
+	pion6B.init(Pion, 1, pionBText, lincolToXY('f', 2));
+	pion7B.init(Pion, 1, pionBText, lincolToXY('g', 2));
+	pion8B.init(Pion, 1, pionBText, lincolToXY('h', 2));
+}*/
+
+sf::Vector2f plateau::lincolToXY(char colonne, int ligne) {
+	int x_dest;
+	int y_dest;
+	int taille = this->taille;
+	x_dest = taille * 0.1 + ((int)colonne - 97)*taille / 8;
+	int inverse = 9 - ligne;
+	y_dest = taille * 0.1 + (inverse - 1) * taille / 8;
+	return sf::Vector2f(x_dest, y_dest);
 }
 
 int plateau::getTaille() {
 	return taille;
+}
+void plateau::loadTextures() {
+	roiNText.loadFromFile("images/chess_piece_2_black_king.png");
+	reineNText.loadFromFile("images/chess_piece_2_black_queen.png");
+	fouNText.loadFromFile("images/chess_piece_2_black_bishop.png");
+	tourNText.loadFromFile("images/chess_piece_2_black_rook.png");
+	cavNText.loadFromFile("images/chess_piece_2_black_knight.png");
+	pionNText.loadFromFile("images/chess_piece_2_black_pawn.png");
+	roiBText.loadFromFile("images/chess_piece_2_white_king.png");
+	reineBText.loadFromFile("images/chess_piece_2_white_queen.png");
+	fouBText.loadFromFile("images/chess_piece_2_white_bishop.png");
+	tourBText.loadFromFile("images/chess_piece_2_white_rook.png");
+	cavBText.loadFromFile("images/chess_piece_2_white_knight.png");
+	pionBText.loadFromFile("images/chess_piece_2_white_pawn.png");
 }
 
 void plateau::afficher(sf::RenderWindow &window)
@@ -38,7 +113,7 @@ void plateau::afficher(sf::RenderWindow &window)
 				window.draw(petit);
 				break;
 			case 1:
-				petit.setFillColor(sf::Color::Black);//couleur des cases noires
+				petit.setFillColor(sf::Color::Red);//couleur des cases noires
 				window.draw(petit);
 				break;
 			default:
@@ -58,7 +133,6 @@ void plateau::afficher(sf::RenderWindow &window)
 		Text.setString(nomLigne[ligne]);
 		window.draw(Text);
 	}
-
 	sf::Text Nom;
 	Nom.setFont(font2);
 	Nom.setFillColor(sf::Color::Black);

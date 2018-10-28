@@ -1,9 +1,14 @@
 #include "piece.h"
 #include "plateau.h"
 
+piece::piece() {
 
-piece::piece()
-{
+}
+void piece::init(classes cl, int team, sf::Texture text, sf::Vector2f position) {
+	this->classe = cl;
+	this->spr.setTexture(text);
+	this->team = team;
+	this->pos = position;
 }
 
 
@@ -11,14 +16,9 @@ piece::~piece()
 {
 }
 
-void piece::move(char colonne, int ligne, plateau echiquier) {
-	int x_dest;
-	int y_dest;
-	int taille = echiquier.getTaille();
-	x_dest = taille*0.1+((int)colonne - 97)*taille/8;
-	int inverse = 9 - ligne;
-	y_dest = taille * 0.1 + inverse * taille / 8;
-	this->Xpos = 2;
-	std::cout << this->Xpos<<std::endl;
-	std::cout << x_dest << " " << y_dest << std::endl;
+sf::Vector2f piece::getPosition() {
+	return sf::Vector2f(this->Xpos, this->Ypos);
+}
+void piece::setPosition(sf::Vector2f posVoulu) {
+	pos = posVoulu;
 }

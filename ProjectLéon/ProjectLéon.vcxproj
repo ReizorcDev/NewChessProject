@@ -136,6 +136,7 @@
     <ClCompile Include="plateau.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="main.h" />
     <ClInclude Include="piece.h" />
     <ClInclude Include="plateau.h" />
     <ClInclude Include="resource.h" />
