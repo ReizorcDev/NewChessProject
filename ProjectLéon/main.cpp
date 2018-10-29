@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "plateau.h"
 #include "piece.h"
-#include "main.h"
+#include <vector>
 using namespace std;
 /*vidéo du mec qui fait un jeu d'échec, parce qu'il y a de bonnes idées et fonctions 
 https://www.youtube.com/watch?v=_4EuZI8Q8cs */
@@ -15,8 +15,9 @@ int main()
 	piece roiB;
 	//roiB.init(Roi, 1, Echiquier.roiBText, Echiquier.lincolToXY('d', 1));
 	piece roiN;
-	roiN.init(Roi, 1, Echiquier.roiNText, Echiquier.lincolToXY('d', 8));
-	roiN.spr.setPosition(roiN.getPosition());
+	vector<piece> vect;
+	vect.push_back(roiN);
+	vect[0].init(Roi, 1, Echiquier.roiNText, Echiquier.lincolToXY('d', 8));
 	piece reineB;
 	piece fou1B;
 	piece fou2B;
@@ -45,7 +46,7 @@ int main()
 
 
 		Echiquier.afficher(window);
-		window.draw(roiN.spr);
+		window.draw(vect[0].spr);
 		window.display();
 	}
 

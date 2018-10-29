@@ -1,4 +1,9 @@
 #include "plateau.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>//uniquement pour test, inutile sinon
+#include <string>
+#include "piece.h"
+#include <vector>
 
 plateau::plateau() {
 	Fond.setSize( sf::Vector2f(taille*(1+0.02*marges), taille*(1+0.02*marges)) );
@@ -39,24 +44,24 @@ plateau::plateau() {
 	pion8N->setPosition(lincolToXY('h', 7, this));
 	*/
 }
-/*
-void plateau::initPieces(piece roiB) {
-	reineB.init(Reine, 1, reineBText, lincolToXY('e', 1));
-	fou1B.init(Fou, 1, fouBText, lincolToXY('c', 1));
-	fou2B.init(Fou, 1, fouBText, lincolToXY('f', 1));
-	cav1B.init(Cavalier, 1, cavBText, lincolToXY('b', 1));
-	cav2B.init(Cavalier, 1, cavBText, lincolToXY('g', 1));
-	tour1B.init(Tour, 1, tourBText, lincolToXY('a', 1));
-	tour2B.init(Tour, 1, tourBText, lincolToXY('h', 1));
-	pion1B.init(Pion, 1, pionBText, lincolToXY('a', 2));
-	pion2B.init(Pion, 1, pionBText, lincolToXY('b', 2));
-	pion3B.init(Pion, 1, pionBText, lincolToXY('c', 2));
-	pion4B.init(Pion, 1, pionBText, lincolToXY('d', 2));
-	pion5B.init(Pion, 1, pionBText, lincolToXY('e', 2));
-	pion6B.init(Pion, 1, pionBText, lincolToXY('f', 2));
-	pion7B.init(Pion, 1, pionBText, lincolToXY('g', 2));
-	pion8B.init(Pion, 1, pionBText, lincolToXY('h', 2));
-}*/
+
+void plateau::initPieces(std::vector<piece> &vect) {
+	vect[0].init(Fou, 1, fouBText, lincolToXY('c', 1));
+	vect[1].init(Fou, 1, fouBText, lincolToXY('f', 1));
+	vect[2].init(Cavalier, 1, cavBText, lincolToXY('b', 1));
+	vect[3].init(Cavalier, 1, cavBText, lincolToXY('g', 1));
+	vect[4].init(Tour, 1, tourBText, lincolToXY('a', 1));
+	vect[5].init(Tour, 1, tourBText, lincolToXY('h', 1));
+	vect[6].init(Pion, 1, pionBText, lincolToXY('a', 2));
+	vect[7].init(Pion, 1, pionBText, lincolToXY('b', 2));
+	vect[8].init(Pion, 1, pionBText, lincolToXY('c', 2));
+	vect[9].init(Pion, 1, pionBText, lincolToXY('d', 2));
+	vect[10].init(Pion, 1, pionBText, lincolToXY('e', 2));
+	vect[11].init(Pion, 1, pionBText, lincolToXY('f', 2));
+	vect[12].init(Pion, 1, pionBText, lincolToXY('g', 2));
+	vect[13].init(Pion, 1, pionBText, lincolToXY('h', 2));
+	vect[14].init(Reine, 1, reineBText, lincolToXY('e', 1));
+}
 
 sf::Vector2f plateau::lincolToXY(char colonne, int ligne) {
 	int x_dest;
