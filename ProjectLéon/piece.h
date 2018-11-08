@@ -1,5 +1,6 @@
 #pragma once
-#include "plateau.h"
+//#include "plateau.h"
+#include <SFML/Graphics.hpp>
 #include <iostream>
 
 typedef enum classes{Roi,Reine,Fou,Tour,Cavalier,Pion};

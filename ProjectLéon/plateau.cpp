@@ -1,9 +1,4 @@
 #include "plateau.h"
-#include <SFML/Graphics.hpp>
-#include <iostream>//uniquement pour test, inutile sinon
-#include <string>
-#include "piece.h"
-#include <vector>
 
 plateau::plateau() {
 	Fond.setSize( sf::Vector2f(taille*(1+0.02*marges), taille*(1+0.02*marges)) );
@@ -61,6 +56,23 @@ void plateau::initPieces(std::vector<piece> &vect) {
 	vect[12].init(Pion, 1, pionBText, lincolToXY('g', 2));
 	vect[13].init(Pion, 1, pionBText, lincolToXY('h', 2));
 	vect[14].init(Reine, 1, reineBText, lincolToXY('e', 1));
+	vect[15].init(Roi, 1, roiBText, lincolToXY('d', 1));
+	vect[16].init(Fou, 1, fouNText, lincolToXY('c', 8));
+	vect[17].init(Fou, 1, fouNText, lincolToXY('f', 8));
+	vect[18].init(Cavalier, 1, cavNText, lincolToXY('b', 8));
+	vect[19].init(Cavalier, 1, cavNText, lincolToXY('g', 8));
+	vect[20].init(Tour, 1, tourNText, lincolToXY('a', 8));
+	vect[21].init(Tour, 1, tourNText, lincolToXY('h', 8));
+	vect[22].init(Pion, 1, pionNText, lincolToXY('a', 7));
+	vect[23].init(Pion, 1, pionNText, lincolToXY('b', 7));
+	vect[24].init(Pion, 1, pionNText, lincolToXY('c', 7));
+	vect[25].init(Pion, 1, pionNText, lincolToXY('d', 7));
+	vect[26].init(Pion, 1, pionNText, lincolToXY('e', 7));
+	vect[27].init(Pion, 1, pionNText, lincolToXY('f', 7));
+	vect[28].init(Pion, 1, pionNText, lincolToXY('g', 7));
+	vect[29].init(Pion, 1, pionNText, lincolToXY('h', 7));
+	vect[30].init(Reine, 1, reineNText, lincolToXY('e', 8));
+	vect[31].init(Roi, 1, roiNText, lincolToXY('d', 8));
 }
 
 sf::Vector2f plateau::lincolToXY(char colonne, int ligne) {
@@ -91,7 +103,7 @@ void plateau::loadTextures() {
 	pionBText.loadFromFile("images/chess_piece_2_white_pawn.png");
 }
 
-void plateau::afficher(sf::RenderWindow &window)
+void plateau::afficher(sf::RenderWindow &window,std::vector<piece> &vect)
 {
 	sf::Font font;//écriture pleine
 	if (!font.loadFromFile("DIMITRI.ttf"))
@@ -118,7 +130,7 @@ void plateau::afficher(sf::RenderWindow &window)
 				window.draw(petit);
 				break;
 			case 1:
-				petit.setFillColor(sf::Color::Red);//couleur des cases noires
+				petit.setFillColor(sf::Color::Black);//couleur des cases noires
 				window.draw(petit);
 				break;
 			default:
@@ -144,6 +156,9 @@ void plateau::afficher(sf::RenderWindow &window)
 	Nom.setCharacterSize(48);
 	Nom.setString("New Chess Project");
 	Nom.setPosition(cote+taille *marges/100, 0);
+	for (int i = 0; i < 32; i++) {
+		window.draw(vect[i].spr);
+	}
 	window.draw(Nom);
 }
 

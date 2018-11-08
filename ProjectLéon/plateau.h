@@ -1,6 +1,4 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>//uniquement pour test, inutile sinon
 #include <string>
 #include "piece.h"
 #include <vector>
@@ -44,8 +42,9 @@ public:
 	sf::Texture tourBText;
 	sf::Texture cavBText;
 	sf::Texture pionBText;
-	void afficher(sf::RenderWindow &window);//afiche le plateau
+	void afficher(sf::RenderWindow &window, std::vector<piece> &vect);//afiche le plateau
 	plateau();
+	piece test;
 	void initPieces(std::vector<piece> &vect);
 	sf::Vector2f lincolToXY(char colonne, int ligne);
 	int getTaille();
